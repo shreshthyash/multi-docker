@@ -2,13 +2,13 @@ sudo: required
 services: 
   - docker
 
-before install: 
+before_install: 
   - docker build -t shreshthyash/react-test -f ./client/Dockerfile.dev .
 
 script: 
   - docker run shreshthyash/react-test npm test -- --coverage
 
-after sucess: 
+after_sucess: 
   - docker build -t shreshthyash/multi-client ./client 
   - docker build -t shreshthyash/multi-nginx ./nginx 
   - docker build -t shreshthyash/multi-server ./server 
