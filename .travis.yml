@@ -8,7 +8,7 @@ before_install:
 script: 
   - docker run shreshthyash/react-test npm test -- --coverage
 
-after_sucess: 
+after_success: 
   - docker build -t shreshthyash/multi-client ./client 
   - docker build -t shreshthyash/multi-nginx ./nginx 
   - docker build -t shreshthyash/multi-server ./server 
@@ -16,7 +16,7 @@ after_sucess:
 #login to docker hub CLI. 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 #take them to push to docker hub. 
-  -docker push shreshthyash/multi-client 
-  -docker push shreshthyash/multi-nginx 
-  -docker push shreshthyash/multi-server 
-  -docker push shreshthyash/multi-worker
+  - docker push shreshthyash/multi-client 
+  - docker push shreshthyash/multi-nginx 
+  - docker push shreshthyash/multi-server 
+  - docker push shreshthyash/multi-worker
